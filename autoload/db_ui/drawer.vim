@@ -494,6 +494,7 @@ function! s:drawer.toggle_line(edit_action) abort
   endif
 
   if item.action ==? 'open'
+    echomsg item
     return self.get_query().open(item, a:edit_action)
   endif
 

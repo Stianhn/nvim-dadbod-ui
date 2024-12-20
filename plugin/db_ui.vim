@@ -3,6 +3,8 @@ if exists('g:loaded_dbui')
 endif
 let g:loaded_dbui = 1
 
+lua require('test')
+
 let g:db_ui_disable_progress_bar = get(g:, 'db_ui_disable_progress_bar', 0)
 let g:db_ui_use_postgres_views = get(g:, 'db_ui_use_postgres_views', 1)
 let g:db_ui_notification_width = get(g:, 'db_ui_notification_width', 40)
@@ -131,3 +133,6 @@ command! DBUIAddConnection call db_ui#connections#add()
 command! DBUIFindBuffer call db_ui#find_buffer()
 command! DBUIRenameBuffer call db_ui#rename_buffer()
 command! DBUILastQueryInfo call db_ui#print_last_query_info()
+command! DBTest call db_ui#list_saved_queries()
+command! DBList lua require('test').list_saved_queries()
+command! DBUINewBuffer lua require('test').new_buffer() 

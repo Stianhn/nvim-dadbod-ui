@@ -485,3 +485,17 @@ function! s:get_db(saved_query_db) abort
   let selected_db = s:dbui_instance.dbs[selected_db.key_name]
   return selected_db
 endfunction
+
+function! db_ui#list() abort
+  return s:dbui_instance.dbs_list
+  " return  [
+  "       \ '666. First choice',
+  "       \ '2. Second choice',
+  "       \ '3. Third choice'
+  "       \ ]
+endfunction
+
+function! db_ui#get_db(db_key) abort
+  return s:dbui_instance.dbs[a:db_key]
+endfunction
+
